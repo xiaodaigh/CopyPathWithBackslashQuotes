@@ -18,7 +18,7 @@ class CopyPathBackslash(DirectoryPaneCommand):
 		files = '\n'.join(to_copy)
 		clipboard.clear()
 		
-		to_copy2 = map(lambda x: '"' + as_human_readable(x) + '"', to_copy)
+		to_copy2 = map(lambda x: '"' + as_human_readable(x).replace("\\", "/") + '"', to_copy)
 
 		clipboard.set_text(',\n'.join(to_copy2))
 		_report_clipboard_action('Copied', to_copy, ' to the clipboard', 'path')
